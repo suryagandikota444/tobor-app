@@ -1787,7 +1787,7 @@ function updateTargetTrail() {
         for (let i = 0; i < targetTrail.children.length; i++) {
             targetTrail.children[i].position.copy(target.position);
         }
-    } 
+    }
 }
 
 animate();
