@@ -1,0 +1,178 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: #f0f0f0;
+}
+
+#container {
+    width: 100vw;
+    height: 100vh;
+}
+
+input[type="file"] {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #444;
+    cursor: pointer;
+}
+
+.recording-controls {
+    position: absolute;
+    top: 60px;
+    left: 10px;
+    z-index: 10;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.record-button {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 5px;
+    border: 1px solid #444;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.record-button:hover:not(:disabled) {
+    background-color: rgba(30, 30, 30, 0.8);
+}
+
+.record-button:active:not(:disabled) {
+    transform: scale(0.95);
+    background-color: rgba(50, 50, 50, 0.9);
+}
+
+.record-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+#startRecordBtn {
+    background-color: rgba(255, 50, 50, 0.7);
+}
+
+#startRecordBtn:hover:not(:disabled) {
+    background-color: rgba(255, 50, 50, 0.9);
+}
+
+#pauseRecordBtn {
+    background-color: rgba(255, 165, 0, 0.7);
+}
+
+#pauseRecordBtn:hover:not(:disabled) {
+    background-color: rgba(255, 165, 0, 0.9);
+}
+
+#stopRecordBtn {
+    background-color: rgba(50, 50, 255, 0.7);
+}
+
+#stopRecordBtn:hover:not(:disabled) {
+    background-color: rgba(50, 50, 255, 0.9);
+}
+
+.recording-status {
+    color: white;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.recording-active {
+    color: #ff3333;
+    animation: blink 1s infinite;
+}
+
+.recording-paused {
+    color: #ffaa33;
+}
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+.camera-buttons {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 10;
+    display: flex;
+    gap: 10px;
+}
+
+.view-button {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 5px;
+    border: 1px solid #444;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.view-button:hover {
+    background-color: rgba(30, 30, 30, 0.8);
+}
+
+.view-button:active {
+    transform: scale(0.95);
+    background-color: rgba(50, 50, 50, 0.9);
+}
+
+#info {
+    position: absolute;
+    top: 50px;
+    left: 10px;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 14px;
+    z-index: 10;
+    max-width: 320px;
+    color: #f0f0f0;
+    pointer-events: none;
+    line-height: 1.4;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border: 1px solid #444;
+}
+
+#info h3 {
+    margin-top: 0;
+    color: #4d88ff;
+    border-bottom: 1px solid #444;
+    padding-bottom: 5px;
+}
+
+#info p {
+    margin-bottom: 12px;
+}
+
+#info strong {
+    color: #ff9d4d;
+}
+
+#info code {
+    background-color: rgba(50, 50, 50, 0.7);
+    padding: 2px 4px;
+    border-radius: 3px;
+    font-family: monospace;
+    color: #4dff4d;
+}
+
+.dg.ac {
+    z-index: 20 !important;  /* Make sure GUI controls are on top */
+}

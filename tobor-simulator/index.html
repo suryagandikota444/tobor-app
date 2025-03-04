@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Robot Arm Simulator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <input type="file" id="sequenceUpload" accept=".txt">
+    <div class="recording-controls">
+        <button id="startRecordBtn" class="record-button">Start Recording</button>
+        <button id="pauseRecordBtn" class="record-button" disabled>Pause Recording</button>
+        <button id="stopRecordBtn" class="record-button" disabled>Stop & Save</button>
+        <span id="recordingStatus" class="recording-status"></span>
+    </div>
+    <div class="camera-buttons">
+        <button id="topViewBtn" class="view-button">Top View (Y)</button>
+        <button id="sideViewBtn" class="view-button">Side View (X)</button>
+        <button id="frontViewBtn" class="view-button">Front View (Z)</button>
+    </div>
+    <div id="info">
+        <h3>Robot Arm Simulator</h3>
+        <p>
+            <strong>Controls:</strong><br>
+            - <strong>Left-click + drag</strong> on the <span style="color:#ff0000">red target sphere</span> to move arm tip<br>
+            - <strong>Right-click + drag</strong> to rotate view<br>
+            - <strong>Middle-click + drag</strong> or <strong>Scroll</strong> to zoom<br>
+            - Use <strong>GUI panel</strong> to adjust arm properties
+        </p>
+        <p>
+            <strong>Segment Controls:</strong><br>
+            - <strong>Click</strong> on an arm segment to select it<br>
+            - Use the <strong>Toggle X/Z Lock</strong> buttons to lock rotation axes<br>
+            - Selected segment will appear highlighted<br>
+            - Locked axes will show colored indicators
+        </p>
+        <p>
+            <strong>Angle Controls:</strong><br>
+            - <strong>Base:</strong> 0° to 360° (full rotation)<br>
+            - <strong>Arm1 X:</strong> 0° to 180° (forward/backward motion)<br>
+            - <strong>Arm1 Z:</strong> 0° to 180° (left/right motion)<br>
+            - <strong>Arm2 X:</strong> 0° to 180° (forward/backward motion)<br>
+            - <strong>Arm2 Z:</strong> 0° to 180° (left/right motion)<br>
+            - <span style="font-size: 12px; color: #aaaaaa;">Note: Locked axes will be greyed out in the control panel</span>
+        </p>
+        <p>
+            <strong>Zero Position & Reset:</strong><br>
+            - Use <strong>Direct Angle Controls</strong> to input specific angles<br>
+            - <strong>Set Current as Zero</strong> sets the current position as zero and resets all angle displays to 0°<br>
+            - When moving the arm, angles are displayed relative to the current zero position<br>
+            - <strong>Reset to Default Zero</strong> returns to the standard zero position<br>
+            - Angle control panel always updates as you move the arm
+        </p>
+        <p>
+            <strong>Custom Rotation Limits:</strong><br>
+            - Set <strong>Custom Rotation Limits</strong> to restrict movement range<br>
+            - Limits can be set for each axis separately<br>
+            - Apply with the <strong>Apply Limits</strong> button
+        </p>
+        <p>
+            <strong>Motion Recording:</strong><br>
+            - Click <strong>Start Recording</strong> to begin capturing arm movements<br>
+            - <strong>Pause</strong> to temporarily stop recording<br>
+            - Click <strong>Stop & Save</strong> to finish and download the motion file<br>
+            - Recorded motions can be uploaded using the file input
+        </p>
+        <p>
+            <strong>Sequence Format:</strong><br>
+            Upload a text file with comma-separated values:<br>
+            <code>baseAngle,arm1AngleX,arm1AngleZ,arm2AngleX,arm2AngleZ,duration</code><br>
+            Example: <code>30,0,45,0,90,2000</code> (30° base, 0° arm1X, 45° arm1Z, 0° arm2X, 90° arm2Z, 2 seconds)
+        </p>
+    </div>
+    <div id="container"></div>
+    <!-- Main Three.js library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- Additional Three.js controls -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/DragControls.js"></script>
+    <!-- GUI library -->
+    <script src="lib/dat.gui.min.js"></script>
+    <!-- Main application code -->
+    <script src="main.js"></script>
+    <script>
+        // Camera view button handlers
+        document.getElementById('topViewBtn').addEventListener('click', function() {
+            setCameraTopView();
+        });
+        document.getElementById('sideViewBtn').addEventListener('click', function() {
+            setCameraSideView();
+        });
+        document.getElementById('frontViewBtn').addEventListener('click', function() {
+            setCameraFrontView();
+        });
+    </script>
+</body>
+</html>
