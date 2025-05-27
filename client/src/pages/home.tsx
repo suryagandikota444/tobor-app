@@ -34,10 +34,6 @@ export default function Home() {
           )}
         </div>
 
-        <div className="flex-1 flex items-center justify-center w-full z-10">
-          <RobotViewer robot={robot} />
-        </div>
-
         <div className="fixed bottom-8 left-1/2 -translate-x-1/2 flex gap-4 z-20">
           <ActionButtons robotId={robot.id} />
         </div>

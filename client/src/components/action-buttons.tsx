@@ -38,30 +38,6 @@ export default function ActionButtons({ robotId }: Props) {
         <Button
           size="icon"
           className="h-14 w-14 rounded-full bg-accent hover:bg-accent/90 shadow-lg shadow-accent/20 backdrop-blur-sm"
-          onClick={() => sendCommand("toggle_blinds")}
-        >
-          <Blinds className="h-6 w-6" />
-        </Button>
-
-        <Button
-          size="icon"
-          className="h-14 w-14 rounded-full bg-accent hover:bg-accent/90 shadow-lg shadow-accent/20 backdrop-blur-sm"
-          onClick={() => sendCommand("make_drink")}
-        >
-          <Coffee className="h-6 w-6" />
-        </Button>
-
-        <Button
-          size="icon"
-          className="h-14 w-14 rounded-full bg-accent hover:bg-accent/90 shadow-lg shadow-accent/20 backdrop-blur-sm"
-          onClick={() => sendCommand("toggle_locks")}
-        >
-          <Lock className="h-6 w-6" />
-        </Button>
-
-        <Button
-          size="icon"
-          className="h-14 w-14 rounded-full bg-accent hover:bg-accent/90 shadow-lg shadow-accent/20 backdrop-blur-sm"
           onClick={() => setTouchpadOpen(true)}
         >
           <Gamepad2 className="h-6 w-6" />
